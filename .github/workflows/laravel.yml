@@ -39,5 +39,11 @@ jobs:
       run: php artisan migrate --force
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
+    - name: Set DB connection to MySQL
+      run: |
+        sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env
+        sed -i 's/^DB_DATABASE=.*/DB_DATABASE=laravel_sso/' .env
+        sed -i 's/^DB_USERNAME=.*/DB_USERNAME=root/' .env
+        sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=root/' .env
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       run: php artisan test
