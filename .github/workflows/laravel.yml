@@ -46,4 +46,11 @@ jobs:
         sed -i 's/^DB_USERNAME=.*/DB_USERNAME=root/' .env
         sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=root/' .env
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: laravel_sso
+        DB_USERNAME: root
+        DB_PASSWORD: root
       run: php artisan test
