@@ -29,7 +29,7 @@ jobs:
     - name: Start MySQL Service
       run: sudo service mysql start
     - name: Create MySQL Database
-      run: mysql -e "CREATE DATABASE laravel_sso;"
+      run: sudo mysql --user=root --password=root -e "CREATE DATABASE laravel_sso;"
     - name: Migrate Database
       env:
         DB_CONNECTION: mysql
