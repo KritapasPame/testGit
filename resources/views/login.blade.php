@@ -22,7 +22,7 @@
     <form method="POST" action="{{ url('/addname') }}">
         @csrf
         <label>Name:</label><br>
-        <input type="text" name="name" required><br><br>
+        <input type="text" name="name" ><br><br>
         <button type="submit">Add</button>
     </form>
 </body>
