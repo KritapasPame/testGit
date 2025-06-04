@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redis;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Service\AuthRedis;
+use App\Http\Controllers\NameController;
+
 
 Route::get('/login', function () {
     $check = new AuthRedis();
@@ -71,3 +73,10 @@ Route::post('/update-last-activity', function () {
 
     return response()->json(['status' => 'success']);
 });
+
+
+
+
+
+
+Route::post('/addname', [NameController::class, 'store']);

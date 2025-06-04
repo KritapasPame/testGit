@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>SSO Login</title>
 </head>
+
 <body>
     <h2>Login</h2>
-    @if($errors->any())
+    @if ($errors->any())
         <p style="color:red">{{ $errors->first() }}</p>
     @endif
     <form method="POST" action="{{ url('/login') }}">
@@ -16,5 +18,13 @@
         <input type="password" name="password" required><br><br>
         <button type="submit">Login</button>
     </form>
+    <br>
+    <form method="POST" action="{{ url('/addname') }}">
+        @csrf
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        <button type="submit">Add</button>
+    </form>
 </body>
+
 </html>
